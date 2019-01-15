@@ -34,7 +34,7 @@ void reset_isr(void)
 	while (dst_ptr < mybss_vend_ptr)
 		*dst_ptr++ = 0;
 
-	op_sysclk(1);
+	op_sysclk(4);
 
 	blink();
 }

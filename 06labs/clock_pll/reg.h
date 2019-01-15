@@ -13,37 +13,37 @@
 #define SET_BIT(addr, bit) (REG(addr) |= UINT32_1 << (bit))
 #define CLEAR_BIT(addr, bit) (REG(addr) &= ~(UINT32_1 << (bit)))
 
-#define READ_BIT(addr, bit) (????????)
+#define READ_BIT(addr, bit) ((REG(addr) >> (bit)) & UINT32_1 )
 
 //FLASH
-#define FLASH_BASE ????????
+#define FLASH_BASE 0X40023C00
 
-#define FLASH_ACR_OFFSET ????????
-#define PRFTEN_BIT ????????
-#define LATENCY_2_BIT ????????
-#define LATENCY_0_BIT ????????
+#define FLASH_ACR_OFFSET 0X00
+#define PRFTEN_BIT 8
+#define LATENCY_2_BIT 2
+#define LATENCY_0_BIT 0
 
 //RCC
 #define RCC_BASE 0x40023800
 
 #define RCC_CR_OFFSET 0x00
-#define PLLRDY_BIT ????????
-#define PLLON_BIT ????????
-#define HSERDY_BIT ????????
-#define HSEON_BIT ????????
+#define PLLRDY_BIT 25
+#define PLLON_BIT 24
+#define HSERDY_BIT 17
+#define HSEON_BIT 16
 
-#define RCC_PLLCFGR_OFFSET ????????
+#define RCC_PLLCFGR_OFFSET 0X04
 
-#define PLLSRC_BIT ????????
+#define PLLSRC_BIT 22
 
-#define PLLP_1_BIT ????????
-#define PLLP_0_BIT ????????
+#define PLLP_1_BIT 17
+#define PLLP_0_BIT 16
 
 #define PLLN_8_BIT 14
 #define PLLN_0_BIT 6
 
-#define PLLM_5_BIT ????????
-#define PLLM_0_BIT ????????
+#define PLLM_5_BIT 5
+#define PLLM_0_BIT 0
 
 #define RCC_CFGR_OFFSET 0x08
 #define MCO2_1_BIT 31
@@ -56,8 +56,8 @@
 #define SWS_1_BIT 3
 #define SWS_0_BIT 2
 
-#define SW_1_BIT ????????
-#define SW_0_BIT ????????
+#define SW_1_BIT 1
+#define SW_0_BIT 0
 
 #define RCC_AHB1ENR_OFFSET 0x30
 #define GPIO_EN_BIT(port) (port)

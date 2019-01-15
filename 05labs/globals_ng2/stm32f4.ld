@@ -10,9 +10,10 @@ SECTIONS
 	{
 		KEEP(*(.isr_vectors))
 		*(.text)
+		_mydata = .;
 	} > FLASH
 
-	.mydata :
+	.mydata :	AT(_mydata)
 	{
 		*(.data)
 	} > SRAM
