@@ -35,7 +35,7 @@
 #define MODERy_0_BIT(y) ((y)*2)
 
 #define GPIOx_OTYPER_OFFSET 0x04
-#define OTy_BIT(y) y
+#define OTy_BIT(y) (y)
 
 #define GPIOx_OSPEEDR_OFFSET 0x08
 #define OSPEEDRy_1_BIT(y) ((y)*2 + 1)
@@ -46,9 +46,13 @@
 #define PUPDRy_0_BIT(y) ((y)*2)
 
 #define GPIOx_BSRR_OFFSET 0x18
-#define BRy_BIT(y) ((y)*2 + 1)
+#define BRy_BIT(y) ((y) + 16)
 #define BSy_BIT(y) (y)
 
+<<<<<<< HEAD
 #define GPIO_AFRL_OFFSET 0x20
 
 #endif
+=======
+#endif
+>>>>>>> f1f850fc2884fb7b46ef8965f8089544c5fced4b

@@ -8,8 +8,8 @@
 
 #include <stdint.h>
 
-#define SET_BIT(addr, bit) *((volatile uint32_t *)(addr)) |= (uint32_t)1 << bit
-#define CLEAR_BIT(addr, bit) *((volatile uint32_t *)(addr)) &= ~((uint32_t)1 << bit)
+#define SET_BIT(addr, bit) (*((volatile uint32_t *)(addr)) |= (uint32_t)1 << (bit))
+#define CLEAR_BIT(addr, bit) (*((volatile uint32_t *)(addr)) &= ~((uint32_t)1 << (bit)))
 
 //RCC
 #define RCC_BASE 0x40023800

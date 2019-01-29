@@ -8,7 +8,7 @@ SECTIONS
 {
 	.mytext :
 	{
-		KEEP(*(.isr_vectors))
+		KEEP(*(.vector_table))
 		*(.text)
 		*(.rodata)
 		_mydata_lma_start = .; /* LMA is equivalent to VMA in this section */

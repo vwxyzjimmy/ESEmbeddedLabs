@@ -8,7 +8,7 @@ SECTIONS
 {
 	.mytext :
 	{
-		KEEP(*(.isr_vectors))
+		KEEP(*(.vector_table))
 		*(.text)
 		_mydata_lma_start = .;
 	} > FLASH

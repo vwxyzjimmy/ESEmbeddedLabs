@@ -1,14 +1,11 @@
+#include <stdint.h>
+#include "reg.h"
+
 /**
- * 
- * STM32F4DISCOVERY
  * 
  * blink blue LED (PD15)
  * 
  */
-
-#include <stdint.h>
-#include "reg.h"
-
 void blink(void)
 {
 	SET_BIT(RCC_BASE + RCC_AHB1ENR_OFFSET, GPIO_EN_BIT(GPIO_PORTD));

@@ -1,15 +1,12 @@
-/**
- * 
- * STM32F4DISCOVERY
- * 
- * system clock output (PC9)
- * 
- */
-
 #include <stdint.h>
 #include "reg.h"
 
-void op_sysclk(uint8_t div)
+/**
+ * 
+ * output sysclk (PC9)
+ * 
+ */
+void op_sysclk(unsigned int div)
 {
 	//RCC
 	CLEAR_BIT(RCC_BASE + RCC_CFGR_OFFSET, MCO2_1_BIT);

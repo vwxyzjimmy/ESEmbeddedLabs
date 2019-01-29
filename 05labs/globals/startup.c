@@ -1,7 +1,7 @@
 #include <stdint.h>
 #include "blink.h"
 
-void reset_isr(void)
+void reset_handler(void)
 {
 	//symbols defined in linker script
 	extern uint32_t _mydata_lma_start;

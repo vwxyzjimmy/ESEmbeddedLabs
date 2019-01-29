@@ -1,15 +1,12 @@
-/**
- * 
- * STM32F4DISCOVERY
- * 
- * blink blue LED (PD15)
- * 
- */
-
 #include <stdint.h>
 #include "reg.h"
 
-void op_sysclk(uint8_t div)
+/**
+ * 
+ * output sysclk (PC9)
+ * 
+ */
+void op_sysclk(unsigned int div)
 {
 	//RCC
 	CLEAR_BIT(RCC_BASE + RCC_CFGR_OFFSET, MCO2_1_BIT);
@@ -45,6 +42,11 @@ void op_sysclk(uint8_t div)
 	CLEAR_BIT(GPIO_BASE(GPIO_PORTC) + GPIOx_PUPDR_OFFSET, PUPDRy_0_BIT(9));
 }
 
+/**
+ * 
+ * set sysclk pll (168 MHz)
+ * 
+ */
 void set_sysclk_pll(void)
 {
 	//enable HSE

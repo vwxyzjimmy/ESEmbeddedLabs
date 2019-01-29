@@ -2,8 +2,8 @@ CROSS-COMPILER = arm-none-eabi-
 QEMU = ./gnu-mcu-eclipse-qemu/bin/qemu-system-gnuarmeclipse
 all: symbols.bin
 
-symbols.bin: symbols.c isr_vectors.s
-	$(CROSS-COMPILER)gcc -Wall -mcpu=cortex-m4 -mthumb -nostartfiles -T stm32f4.ld symbols.c isr_vectors.s -o symbols.elf
+symbols.bin: symbols.c vector_table.s
+	$(CROSS-COMPILER)gcc -Wall -mcpu=cortex-m4 -mthumb -nostartfiles -T stm32f4.ld symbols.c vector_table.s -o symbols.elf
 	$(CROSS-COMPILER)objcopy -O binary symbols.elf symbols.bin
 
 qemu:
