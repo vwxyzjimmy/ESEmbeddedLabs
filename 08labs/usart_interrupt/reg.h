@@ -143,4 +143,8 @@
 
 #define NVIC_ISERn_OFFSET(n) (0x00 + 4 * (n))
 
+<<<<<<< HEAD
 #endif
+=======
+#endif
+>>>>>>> fc4395a573416d2589bb8d96291d3d6a142e7e8f

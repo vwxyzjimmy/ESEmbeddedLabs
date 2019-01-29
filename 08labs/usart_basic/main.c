@@ -6,6 +6,7 @@ void init_usart1(void)
 	//PB6 PB7
 
 	//RCC EN GPIOB
+<<<<<<< HEAD
 	SET_BIT(RCC_BASE + RCC_AHB1ENR_OFFSET, GPIO_EN_BIT(GPIO_PORTB));
 
 	//GPIO Configurations
@@ -36,12 +37,22 @@ void init_usart1(void)
 
 	//RCC EN USART1
 	SET_BIT(RCC_BASE + RCC_APB2ENR_OFFSET, USART1EN);
+=======
+	??????
+
+	//GPIO Configurations
+	??????
+
+	//RCC EN USART1
+	??????
+>>>>>>> fc4395a573416d2589bb8d96291d3d6a142e7e8f
 
 	//Baud
 	const unsigned int BAUD = 115200;
 	const unsigned int SYSCLK_MHZ = 168;
 	const double USARTDIV = SYSCLK_MHZ * 1.0e6 / 16 / BAUD;
 
+<<<<<<< HEAD
 	const uint32_t DIV_MANTISSA = (int)(USARTDIV);
 	const uint32_t DIV_FRACTION = (int)(((USARTDIV)-DIV_MANTISSA) *16);
 
@@ -51,19 +62,34 @@ void init_usart1(void)
 	WRITE_BITS(USART1_BASE + USART_BRR_OFFSET, DIV_FRACTION_3_BIT, DIV_FRACTION_0_BIT, DIV_FRACTION);
 	SET_BIT(USART1_BASE + USART_CR1_OFFSET, TE_BIT);
 	SET_BIT(USART1_BASE + USART_CR1_OFFSET, RE_BIT);
+=======
+	const uint32_t DIV_MANTISSA = ??????
+	const uint32_t DIV_FRACTION = ??????
+
+	//USART  Configurations
+	??????
+>>>>>>> fc4395a573416d2589bb8d96291d3d6a142e7e8f
 
 }
 
 void usart1_send_char(const char ch)
 {
+<<<<<<< HEAD
 	while (!READ_BIT(USART1_BASE + USART_SR_OFFSET,TXE_BIT));
 	REG(USART1_BASE + USART_DR_OFFSET) = ch;
+=======
+	??????
+>>>>>>> fc4395a573416d2589bb8d96291d3d6a142e7e8f
 }
 
 char usart1_receive_char(void)
 {
+<<<<<<< HEAD
 	while (!READ_BIT(USART1_BASE + USART_SR_OFFSET,RXNE_BIT));
 	return(REG(USART1_BASE + USART_DR_OFFSET));
+=======
+	??????
+>>>>>>> fc4395a573416d2589bb8d96291d3d6a142e7e8f
 }
 
 int main(void)

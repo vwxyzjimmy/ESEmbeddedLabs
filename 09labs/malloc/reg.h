@@ -64,6 +64,7 @@
 
 #define RCC_APB2ENR_OFFSET 0x44
 #define SYSCFGEN_BIT 14
+#define USART1EN 4
 
 //GPIO
 #define GPIO_PORTA 0
@@ -92,6 +93,10 @@
 #define BRy_BIT(y) ((y) + 16)
 #define BSy_BIT(y) (y)
 
+#define GPIOx_AFRL_OFFSET 0x20
+#define AFRLy_3_BIT(y) ((y)*4 + 3)
+#define AFRLy_0_BIT(y) ((y)*4)
+
 //EXTI
 #define EXTI_BASE 0x40013C00
 
@@ -110,6 +115,29 @@
 
 #define EXTI0_3_BIT 3
 #define EXTI0_0_BIT 0
+
+//USART1
+#define USART1_BASE 0x40011000
+
+#define USART_SR_OFFSET 0x00
+#define TXE_BIT 7
+#define TC_BIT 6
+#define RXNE_BIT 5
+#define ORE_BIT 3
+
+#define USART_DR_OFFSET 0x04
+
+#define USART_BRR_OFFSET 0x08
+#define DIV_MANTISSA_11_BIT 15
+#define DIV_MANTISSA_0_BIT 4
+#define DIV_FRACTION_3_BIT 3
+#define DIV_FRACTION_0_BIT 0
+
+#define USART_CR1_OFFSET 0x0C
+#define UE_BIT 13
+#define RXNEIE_BIT 5
+#define TE_BIT 3
+#define RE_BIT 2
 
 //NVIC
 #define NVIC_ISER_BASE 0xE000E100
