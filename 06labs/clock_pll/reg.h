@@ -89,10 +89,6 @@
 #define BRy_BIT(y) ((y) + 16)
 #define BSy_BIT(y) (y)
 
-<<<<<<< HEAD
 #define GPIO_AFRL_OFFSET 0x20
 
 #endif
-=======
-#endif
->>>>>>> f1f850fc2884fb7b46ef8965f8089544c5fced4b
