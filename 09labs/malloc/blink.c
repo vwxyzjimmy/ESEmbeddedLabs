@@ -2,9 +2,9 @@
 #include "reg.h"
 
 /**
- *
+ * 
  * LED init
- *
+ * 
  */
 void led_init(unsigned int led)
 {
@@ -27,7 +27,7 @@ void led_init(unsigned int led)
 }
 
 /**
- *
+ * 
  * blink LED forever
  * 
  */
@@ -54,9 +54,9 @@ void blink(unsigned int led)
 }
 
 /**
- *
+ * 
  * blink LED x count
- *
+ * 
  */
 void blink_count(unsigned int led, unsigned int count)
 {
