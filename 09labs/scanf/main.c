@@ -129,13 +129,9 @@ int _lseek(int file, int ptr, int dir)
 int _read(int file, char *ptr, int len)
 {
 	size_t input_len = 0;
-	while(1){
-	*ptr++ = usart1_receive_char();
-	input_len++;
-		if(*(ptr-1) == 0x0d){
-			*(ptr-1) = '\n';
-			break;
-		}
+	while(*(ptr-1) != 0x0d){
+		*ptr++ = usart1_receive_char();
+		input_len++;
 	}
 	return input_len;
 }
