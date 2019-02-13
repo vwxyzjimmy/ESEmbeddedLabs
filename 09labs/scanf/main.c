@@ -75,12 +75,11 @@ char usart1_receive_char(void)
 int main(void)
 {
 	init_usart1();
-
 	int i = 75;
 	printf("Decimal: %d  Hexadecimal: 0x%x \r\n", i, i);
 	printf("Character: %c\r\n", i);
 	char keyword[] = "Howdoyouturnthison";
-	char input[30];
+	char input[255];
 	while(1){
 		scanf("%s", input);
 		printf("%s\r\n", input);
@@ -112,7 +111,6 @@ int _write(int file, char *ptr, int len)
 {
 	for (unsigned int i = 0; i < len; i++)
 		usart1_send_char(*ptr++);
-
 	return len;
 }
 
@@ -132,7 +130,22 @@ int _read(int file, char *ptr, int len)
 	while(*(ptr-1) != 0x0d){
 		*ptr++ = usart1_receive_char();
 		input_len++;
+		if (*(ptr-1) == 0x08){
+			usart1_send_char(8);
+			usart1_send_char(32);
+			usart1_send_char(8);
+			if(input_len > 1){
+				input_len = input_len - 2;
+			}
+			else if (input_len == 1){
+				input_len = 0;
+			}
+		}
+		else{
+			usart1_send_char(*(ptr-1));
+		}
 	}
+	usart1_send_char('\n');
 	return input_len;
 }
 
