@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include <stdlib.h>
 #include <sys/stat.h>
+#include <string.h>
 #include "blink.h"
 #include "reg.h"
 
@@ -74,17 +75,19 @@ char usart1_receive_char(void)
 int main(void)
 {
 	init_usart1();
-	int number;
-	scanf("%d", &number);
-	if (number == 1)
-		printf("Hello World\r\n");
 
 	int i = 75;
-
 	printf("Decimal: %d  Hexadecimal: 0x%x \r\n", i, i);
-
 	printf("Character: %c\r\n", i);
-
+	char keyword[] = "Howdoyouturnthison";
+	char input[30];
+	while(1){
+		scanf("%s", input);
+		printf("%s\r\n", input);
+		if ( strcmp(input, keyword) == 0){
+			printf("Hello World\r\n");
+		}
+	}
 	blink(LED_BLUE);
 }
 
@@ -125,7 +128,16 @@ int _lseek(int file, int ptr, int dir)
 
 int _read(int file, char *ptr, int len)
 {
-	return 0;
+	size_t input_len = 0;
+	while(1){
+	*ptr++ = usart1_receive_char();
+	input_len++;
+		if(*(ptr-1) == 0x0d){
+			*(ptr-1) = '\n';
+			break;
+		}
+	}
+	return input_len;
 }
 
 int _fstat(int file, struct stat *st)
