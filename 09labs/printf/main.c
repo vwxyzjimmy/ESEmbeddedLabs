@@ -74,11 +74,11 @@ char usart1_receive_char(void)
 int main(void)
 {
 	init_usart1();
-
 	printf("Hello World\r\n");
-
+	
 	int i = 75;
-
+	scanf("%d", &i);
+	printf("%d\r\n", i);
 	printf("Decimal: %d  Hexadecimal: 0x%x \r\n", i, i);
 
 	printf("Character: %c\r\n", i);
