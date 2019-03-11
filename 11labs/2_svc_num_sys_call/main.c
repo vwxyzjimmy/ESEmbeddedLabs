@@ -108,12 +108,11 @@ void user_task(void)
 	blink(LED_BLUE);
 }
 
-void svc_handler_c(uint32_t LR, uint32_t MSP, uint32_t ctrl)
+void svc_handler_c(uint32_t LR, uint32_t MSP)
 {
 	/*
 	printf("[SVC Handler] LR: 0x%X\r\n", (unsigned int)LR);
 	printf("[SVC Handler] MSP Backup: 0x%X \r\n", (unsigned int)MSP);
-	printf("[SVC Handler] Origin_Control: 0x%X\r\n", (unsigned int)ctrl);
 	printf("[SVC Handler] Control: 0x%X\r\n", (unsigned int)read_ctrl());
 	printf("[SVC Handler] SP: 0x%X \r\n", (unsigned int)read_sp());
 	printf("[SVC Handler] MSP: 0x%X \r\n", (unsigned int)read_msp());
@@ -125,7 +124,6 @@ void svc_handler_c(uint32_t LR, uint32_t MSP, uint32_t ctrl)
 	{
 		stack_frame_ptr = (uint32_t *)read_psp(); //if 1, stacking used PSP
 		//printf("[SVC Handler] Stacking used PSP: 0x%X \r\n\n", (unsigned int)stack_frame_ptr);
-		ctrl |= 0x2;
 	}
 	else
 	{
@@ -156,7 +154,6 @@ void svc_handler_c(uint32_t LR, uint32_t MSP, uint32_t ctrl)
 	else
 		//return 0
 		*(stack_frame_ptr) = 0;
-	write_ctrl(ctrl);
 }
 
 void init_usart1(void)

@@ -58,6 +58,5 @@ sys_call:
 svc_handler:
 	movs	r0,	lr
 	mrs	r1,	msp
-	mrs	r2,	control
 
 	b	svc_handler_c
