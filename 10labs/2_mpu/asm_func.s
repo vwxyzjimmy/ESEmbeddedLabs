@@ -2,40 +2,39 @@
 
 .global	read_sp
 read_sp:
-	mov	r0,	sp
-	bx	lr
+	mov r0,	sp ;
+	bx lr	;
 
 .global	read_msp
 read_msp:
-	mrs	r0,	msp
-	bx	lr
+	MRS r0, msp	;
+	isb
+	bx lr	;
 
 .global	read_psp
 read_psp:
-	mrs	r0,	psp
-	bx	lr
+	MRS r0, psp	;
+	isb
+	bx lr	;
 
 .global	read_ctrl
 read_ctrl:
-	mrs	r0,	control
-	bx	lr
+	MRS r0, CONTROL ;
+	isb
+	bx lr	;
 
 .global	start_user
 start_user:
-	movs	lr,	r0
-	msr	psp,	r1
-
-	movs	r3,	#0b11
-	msr	control,	r3
+	mov lr, r0	;
+	MSR psp, r1 ;
+	mov r1, #0b11;
+	MSR CONTROL, r1;
 	isb
-
-	bx	lr
+	bx lr	;
 
 .global	sw_priv
 sw_priv:
-	movs	r3,	#0
-	msr	control,	r3
+	mov r1,  0;
+	MSR CONTROL, r1 ;
 	isb
-
-	bx	lr
-
+	bx lr	;
