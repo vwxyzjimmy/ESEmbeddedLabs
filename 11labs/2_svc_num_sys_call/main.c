@@ -41,6 +41,7 @@ void setup_mpu(void)
 	REG(MPU_BASE + MPU_RBAR_OFFSET) = MPU_RBAR_VALUE(GPIO_BASE(GPIO_PORTD), 4);
 	REG(MPU_BASE + MPU_RASR_OFFSET) = MPU_RASR_VALUE(MPU_XN_ENABLE, MPU_AP_FULL_ACCESS, MPU_TYPE_PERIPHERALS, 0, MPU_REGION_SIZE_32B);
 
+
 	//disable region 4 ~ 7
 	for (int i=5;i<8;i++)
 	{
@@ -103,7 +104,7 @@ void user_task(void)
 	printf("[User] SVC return %d.\r\n\n", (int)sys_call_add(8, 9));
 	*/
 	printf("sys_call_write in _write\r\nusart1_send_char('E'); cause exception,\r\ncomment that to avoid exception\r\n");
-	//usart1_send_char('E');
+	usart1_send_char('E');
 	blink(LED_BLUE);
 }
 
