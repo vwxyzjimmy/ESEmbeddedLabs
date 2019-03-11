@@ -284,9 +284,9 @@ void *_sbrk(int incr)
 
 int _write(int file, char *ptr, int len)
 {
-	sys_call_write(ptr, len);					//to system call from _write,uncomment this line and comment out from line 303 to 304
+	sys_call_write(ptr, len);
 	/*
-	for (unsigned int i = 0; i < len; i++)		// to system call from print_sys uncomment from line 303 to 304  and comment out line 301
+	for (unsigned int i = 0; i < len; i++)
 		usart1_send_char(*ptr++);
 		*/
 	return len;
