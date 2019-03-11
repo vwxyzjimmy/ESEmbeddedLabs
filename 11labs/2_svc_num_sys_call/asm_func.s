@@ -60,8 +60,4 @@ svc_handler:
 	mrs	r1,	msp
 	mrs	r2,	control
 
-	movs	r3,	#0b0
-	msr	control,	r3
-	isb
-
 	b	svc_handler_c

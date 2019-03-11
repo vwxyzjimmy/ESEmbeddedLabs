@@ -104,7 +104,7 @@ void user_task(void)
 	printf("[User] SVC return %d.\r\n\n", (int)sys_call_add(8, 9));
 	*/
 	printf("sys_call_write in _write\r\nusart1_send_char('E'); cause exception,\r\ncomment that to avoid exception\r\n");
-	usart1_send_char('E');
+	//usart1_send_char('E');
 	blink(LED_BLUE);
 }
 
